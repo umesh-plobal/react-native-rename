@@ -1,6 +1,6 @@
 {
   "name": "react-native-rename-android",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rename react-native app with just one command",
   "main": "lib/index.js",
   "scripts": {
@@ -23,6 +23,10 @@
       "npm run lint --fix"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umesh-plobal/react-native-rename.git"
+  },
   "keywords": [
     "react-native",
     "ios",
@@ -32,14 +36,18 @@
     "react",
     "space"
   ],
+  "author": {
+    "email": "junedomingo@gmail.com",
+    "name": "June Domingo"
+  },
   "license": "MIT",
   "bin": {
     "react-native-rename": "lib/index.js"
   },
   "bugs": {
-    "url": "https://github.com/umesh-plobal/react-native-rename/issues"
+    "url": "https://github.com/junedomingo/react-native-rename/issues"
   },
-  "homepage": "https://github.com/umesh-plobal/react-native-rename#readme",
+  "homepage": "https://github.com/junedomingo/react-native-rename#readme",
   "devDependencies": {
     "esbuild": "^0.18.1",
     "eslint": "^8.43.0",
