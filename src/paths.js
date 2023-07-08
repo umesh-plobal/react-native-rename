@@ -186,6 +186,8 @@ export const getAndroidUpdateFilesContentOptions = ({
   newBundleIDAsPath,
 }) => {
   const newModulesName = cleanString(newName).toLowerCase();
+  console.log("current Name", currentName);
+  console.log("New Name", newModulesName);
 
   return [
     {
