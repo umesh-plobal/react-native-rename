@@ -186,8 +186,6 @@ export const getAndroidUpdateFilesContentOptions = ({
   newBundleIDAsPath,
 }) => {
   const newModulesName = cleanString(newName).toLowerCase();
-  console.log("current Name", currentName);
-  console.log("New Name", newModulesName);
 
   return [
     {
@@ -248,8 +246,7 @@ export const getAndroidUpdateBundleIDOptions = ({
         'android/app/build.gradle',
         `android/app/src/debug/java/${newBundleIDAsPath}/ReactNativeFlipper.java`,
         `android/app/src/release/java/${newBundleIDAsPath}/ReactNativeFlipper.java`,
-        `android/app/src/main/java/${newBundleIDAsPath}/MainActivity.java`,
-        `android/app/src/main/java/${newBundleIDAsPath}/MainApplication.java`,
+        `android/app/src/main/java/${newBundleIDAsPath}/*`
       ],
       from: new RegExp(`${currentBundleID}`, 'g'),
       to: newBundleID,
@@ -313,18 +310,14 @@ export const getOtherUpdateFilesContentOptions = ({
       from: [
         new RegExp(`${appJsonName}`, 'gi'),
         new RegExp(`${appJsonDisplayName}`, 'gi'),
-        /\"scheme\"\: \"(.*)\"/,
         /\"package\"\: \"(.*)\"/,
-        /\"bundleIdentifier\"\: \"(.*)\"/,
         /\"name\"\: \"(.*)\"/,
         /\"slug\"\: \"(.*)\"/,
       ],
       to: [
         newName,
         newName,
-        `"scheme": "${cleanNewPathContentStr}"`,
         `"package": "${newAndroidBundleID}"`,
-        `"bundleIdentifier": "${newIosBundleID}"`,
         `"name": "${newName}"`,
         `"slug": "${newName}"`,
       ],

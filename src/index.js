@@ -83,17 +83,6 @@ program
     const newPathContentStr = pathContentStr || newName;
     const currentAndroidBundleID = getAndroidCurrentBundleID();
 
-    await renameIosFoldersAndFiles(newPathContentStr);
-    await updateIosFilesContent({
-      currentName: currentIosName,
-      newName,
-      currentPathContentStr,
-      newPathContentStr,
-      newBundleID: newIosBundleID || newBundleID,
-    });
-
-    await updateIosNameInInfoPlist(newName);
-
     if (newAndroidBundleID || newBundleID) {
       await renameAndroidBundleIDFolders({
         currentBundleIDAsPath: bundleIDToPath(currentAndroidBundleID),
