@@ -186,7 +186,7 @@ export const getAndroidUpdateFilesContentOptions = ({
   newBundleIDAsPath,
 }) => {
   const newModulesName = cleanString(newName).toLowerCase();
-
+  const moduleName = newName.replaceAll(" ", "")
   return [
     {
       files: 'android/settings.gradle',
@@ -196,7 +196,7 @@ export const getAndroidUpdateFilesContentOptions = ({
     {
       files: [`android/app/src/main/java/${newBundleIDAsPath}/MainActivity.java`],
       from: [`"${currentName}"`],
-      to: `"${newName}"`,
+      to: `"${newModulesName}"`,
     },
     {
       files: 'android/.idea/.name',
@@ -315,11 +315,11 @@ export const getOtherUpdateFilesContentOptions = ({
         /\"slug\"\: \"(.*)\"/,
       ],
       to: [
-        newName,
+        cleanNewPathContentStr,
         newName,
         `"package": "${newAndroidBundleID}"`,
-        `"name": "${newName}"`,
-        `"slug": "${newName}"`,
+        `"name": "${cleanNewPathContentStr}"`,
+        `"slug": "${cleanNewPathContentStr}"`,
       ],
     },
   ];
