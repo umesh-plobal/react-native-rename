@@ -293,7 +293,7 @@ export const getOtherUpdateFilesContentOptions = ({
   newIosBundleID,
 }) => {
   const cleanNewPathContentStr = newPathContentStr.replace(/\s/g, '').toLowerCase();
-
+  const newModulesName = cleanString(newName).toLowerCase();
   return [
     {
       files: ['index.js', 'index.ios.js', 'index.android.js'],
@@ -318,7 +318,7 @@ export const getOtherUpdateFilesContentOptions = ({
         cleanNewPathContentStr,
         newName,
         `"package": "${newAndroidBundleID}"`,
-        `"name": "${cleanNewPathContentStr}"`,
+        `"name": "${newModulesName}"`,
         `"slug": "${cleanNewPathContentStr}"`,
       ],
     },
